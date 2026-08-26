@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="23" stroke="url(#favGrad)" stroke-width="1.5"/>
+  <circle cx="24" cy="24" r="19" stroke="url(#favGrad)" stroke-width="0.5" opacity="0.4"/>
+  <path d="M16 32V18c0-1.5 1.2-2.7 2.7-2.7h3.6c1.5 0 2.7 1.2 2.7 2.7v14" stroke="url(#favGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M16 32h12" stroke="url(#favGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M28 24c2.5-0.5 4.5 0.5 5.5 2s0.5 3.5-0.5 5c-1 1.5-3 2.5-5.5 2" stroke="url(#favGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M30.5 18.5l1.5-2.5M33 21l2.5-1M33 26l2.5 1" stroke="url(#favGrad)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <defs>
+    <linearGradient id="favGrad" x1="4" y1="4" x2="44" y2="44">
+      <stop stop-color="#e8d5b5"/>
+      <stop offset="0.5" stop-color="#c8a97e"/>
+      <stop offset="1" stop-color="#a8885a"/>
+    </linearGradient>
+  </defs>
+</svg>
