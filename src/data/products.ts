@@ -1,397 +1,80 @@
-export type DayOfWeek = "segunda" | "terca" | "quarta" | "quinta" | "sexta" | "sabado" | "domingo";
-export type MealType = "cafe" | "almoco" | "lanche" | "jantar";
+export type Category = "pizzas" | "hamburguer" | "japones" | "massas" | "bebidas" | "sobremesas" | "acompanhamentos" | "combos";
 
-export interface FoodItem {
+export interface Product {
   id: number;
   name: string;
+  description: string;
+  price: number;
+  oldPrice?: number;
+  category: Category;
+  image: string;
+  rating: number;
+  time: string;
+  badge?: string;
+  calories?: number;
 }
 
-export interface MealSection {
-  type: MealType;
+export interface CategoryInfo {
+  key: Category;
   label: string;
   icon: string;
-  items: FoodItem[];
 }
 
-export interface DailyMenu {
-  day: DayOfWeek;
-  label: string;
-  shortLabel: string;
-  ageGroups: {
-    name: string;
-    meals: MealSection[];
-  }[];
-}
-
-export interface RestaurantInfo {
-  name: string;
-  address: string;
-  phone: string;
-  hours: string;
-  description: string;
-}
-
-export const restaurantInfo: RestaurantInfo = {
-  name: "Seu Restaurante",
-  address: "Rua Augusta, 1200 - Consolacao, Sao Paulo - SP",
-  phone: "(11) 3256-8800",
-  hours: "Seg a Sex: 11h as 15h | Sab: 11h as 14h",
-  description: "Alimentacao escolar de qualidade para nossa comunidade",
-};
-
-const weekMenu: DailyMenu[] = [
-  {
-    day: "segunda",
-    label: "Segunda-feira",
-    shortLabel: "SEG",
-    ageGroups: [
-      {
-        name: "Cafe da Manha",
-        meals: [
-          {
-            type: "cafe",
-            label: "Cafe da Manha",
-            icon: "cafe",
-            items: [
-              { id: 1, name: "Pao frances com manteiga" },
-              { id: 2, name: "Suco de laranja natural" },
-              { id: 3, name: "Fruta picada (banana e maca)" },
-              { id: 4, name: "Leite com achocolatado" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 5, name: "Arroz branco" },
-              { id: 6, name: "Feijao carioca" },
-              { id: 7, name: "Frango grelhado com tempero especial" },
-              { id: 8, name: "Salada de alface e tomate" },
-              { id: 9, name: "Batata assada com ervas" },
-              { id: 10, name: "Pudim de leite" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lanche da Tarde",
-        meals: [
-          {
-            type: "lanche",
-            label: "Lanche da Tarde",
-            icon: "lanche",
-            items: [
-              { id: 11, name: "Bolo de cenoura com cobertura" },
-              { id: 12, name: "Vitamina de frutas" },
-              { id: 13, name: "Biscoito integral" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "terca",
-    label: "Terca-feira",
-    shortLabel: "TER",
-    ageGroups: [
-      {
-        name: "Cafe da Manha",
-        meals: [
-          {
-            type: "cafe",
-            label: "Cafe da Manha",
-            icon: "cafe",
-            items: [
-              { id: 14, name: "Torrada com queijo" },
-              { id: 15, name: "Maca picada com canela" },
-              { id: 16, name: "Suco de maracuja" },
-              { id: 17, name: "Creme de leite com granola" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 18, name: "Arroz integral" },
-              { id: 19, name: "Feijao preto" },
-              { id: 20, name: "Carne moída acebolada" },
-              { id: 21, name: "Mandioca cozida" },
-              { id: 22, name: "Salada de couve e cenoura" },
-              { id: 23, name: "Gelatina de frutas" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lanche da Tarde",
-        meals: [
-          {
-            type: "lanche",
-            label: "Lanche da Tarde",
-            icon: "lanche",
-            items: [
-              { id: 24, name: "Pao de queijo caseiro" },
-              { id: 25, name: "Iogurte natural" },
-              { id: 26, name: "Fruta (laranja)" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "quarta",
-    label: "Quarta-feira",
-    shortLabel: "QUA",
-    ageGroups: [
-      {
-        name: "Cafe da Manha",
-        meals: [
-          {
-            type: "cafe",
-            label: "Cafe da Manha",
-            icon: "cafe",
-            items: [
-              { id: 27, name: "Cereal com leite" },
-              { id: 28, name: "Banana picada" },
-              { id: 29, name: "Suco de uva" },
-              { id: 30, name: "Pao integral com requeijao" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 31, name: "Macarrao ao molho de tomate" },
-              { id: 32, name: "Salsicha assada" },
-              { id: 33, name: "Purê de batata" },
-              { id: 34, name: "Salada verde" },
-              { id: 35, name: "Fruta da estacao" },
-              { id: 36, name: "Agua com gas e limao" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lanche da Tarde",
-        meals: [
-          {
-            type: "lanche",
-            label: "Lanche da Tarde",
-            icon: "lanche",
-            items: [
-              { id: 37, name: "Sonho de creme" },
-              { id: 38, name: "Suco de tomate" },
-              { id: 39, name: "Pao de forma com margarina" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "quinta",
-    label: "Quinta-feira",
-    shortLabel: "QUI",
-    ageGroups: [
-      {
-        name: "Cafe da Manha",
-        meals: [
-          {
-            type: "cafe",
-            label: "Cafe da Manha",
-            icon: "cafe",
-            items: [
-              { id: 40, name: "Pao com ovo mexido" },
-              { id: 41, name: "Mamao fatiado" },
-              { id: 42, name: "Chá de camomila" },
-              { id: 43, name: "Iogurte com mel" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 44, name: "Arroz com cenoura" },
-              { id: 45, name: "Feijao fradinho" },
-              { id: 46, name: "Peixe grelhado com limao" },
-              { id: 47, name: "Legumes refogados" },
-              { id: 48, name: "Vinagrete" },
-              { id: 49, name: "Sorvete de frutas" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lanche da Tarde",
-        meals: [
-          {
-            type: "lanche",
-            label: "Lanche da Tarde",
-            icon: "lanche",
-            items: [
-              { id: 50, name: "Coxinha de frango" },
-              { id: 51, name: "Suco natural de limao" },
-              { id: 52, name: "Biscoito Digestivo" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "sexta",
-    label: "Sexta-feira",
-    shortLabel: "SEX",
-    ageGroups: [
-      {
-        name: "Cafe da Manha",
-        meals: [
-          {
-            type: "cafe",
-            label: "Cafe da Manha",
-            icon: "cafe",
-            items: [
-              { id: 53, name: "Panqueca com geleia" },
-              { id: 54, name: "Fruta picada" },
-              { id: 55, name: "Vitamina de acerola" },
-              { id: 56, name: "Leite quente" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 57, name: "Arroz tropcial" },
-              { id: 58, name: "Feijao carioca" },
-              { id: 59, name: "Estrogonofe de frango" },
-              { id: 60, name: "Batata palha" },
-              { id: 61, name: "Salada de repolho" },
-              { id: 62, name: "Romeu e Julieta" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lanche da Tarde",
-        meals: [
-          {
-            type: "lanche",
-            label: "Lanche da Tarde",
-            icon: "lanche",
-            items: [
-              { id: 63, name: "Empada de queijo" },
-              { id: 64, name: "Suco de abacaxi" },
-              { id: 65, name: "Amendoim torrado" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "sabado",
-    label: "Sabado",
-    shortLabel: "SAB",
-    ageGroups: [
-      {
-        name: "Almoco",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco",
-            icon: "almoco",
-            items: [
-              { id: 66, name: "Arroz branco" },
-              { id: 67, name: "Feijão tropeiro mineiro" },
-              { id: 68, name: "Linguiça calabresa acebolada" },
-              { id: 69, name: "Farofa de ovos" },
-              { id: 70, name: "Salada de mangas" },
-              { id: 71, name: "Cocada branca" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    day: "domingo",
-    label: "Domingo",
-    shortLabel: "DOM",
-    ageGroups: [
-      {
-        name: "Almoco Especial",
-        meals: [
-          {
-            type: "almoco",
-            label: "Almoco Especial",
-            icon: "almoco",
-            items: [
-              { id: 72, name: "Arroz com açafrão" },
-              { id: 73, name: "Feijão tropeiro" },
-              { id: 74, name: "Picanha na brasa" },
-              { id: 75, name: "Vinagrete especial" },
-              { id: 76, name: "Mandioca frita" },
-              { id: 77, name: "Quentão da casa" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+export const categories: CategoryInfo[] = [
+  { key: "combos", label: "Combos", icon: "combo" },
+  { key: "pizzas", label: "Pizzas", icon: "pizza" },
+  { key: "hamburguer", label: "Hamburguer", icon: "burger" },
+  { key: "massas", label: "Massas", icon: "pasta" },
+  { key: "japones", label: "Japones", icon: "sushi" },
+  { key: "acompanhamentos", label: "Acomp.", icon: "fries" },
+  { key: "bebidas", label: "Bebidas", icon: "drink" },
+  { key: "sobremesas", label: "Sobremesas", icon: "dessert" },
 ];
 
-export function getMenuForDay(dayIndex: number): DailyMenu {
-  return weekMenu[dayIndex % 7];
-}
+export const products: Product[] = [
+  // COMBOS
+  { id: 1, name: "Combo Familiar Mega", description: "2 Pizzas Grandes + 1 Refri 2L + 1 Batata Grande", price: 119.9, oldPrice: 149.9, category: "combos", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=400&fit=crop", rating: 4.9, time: "35-45 min", badge: "Mais Pedido" },
+  { id: 2, name: "Combo Amigos", description: "1 Pizza Grande + 2 Refris 600ml + 1 Onion Rings", price: 79.9, oldPrice: 99.9, category: "combos", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop", rating: 4.8, time: "30-40 min", badge: "Economize" },
+  { id: 3, name: "Combo Casal", description: "1 Pizza Media + 1 Refri 600ml + 1 Sobremesa", price: 64.9, category: "combos", image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=400&fit=crop", rating: 4.7, time: "25-35 min" },
 
-export function getWeekMenu(): DailyMenu[] {
-  return weekMenu;
-}
+  // PIZZAS
+  { id: 4, name: "Pizza Margherita", description: "Molho de tomate, mussarela, manjericao e azeite", price: 44.9, category: "pizzas", image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&h=400&fit=crop", rating: 4.9, time: "25-35 min", calories: 850 },
+  { id: 5, name: "Pizza Pepperoni", description: "Camada generosa de pepperoni com mussarela derretida", price: 49.9, category: "pizzas", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&h=400&fit=crop", rating: 4.8, time: "25-35 min", calories: 920, badge: "Popular" },
+  { id: 6, name: "Pizza 4 Queijos", description: "Mussarela, gorgonzola, parmesao e provolone", price: 52.9, category: "pizzas", image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=400&fit=crop", rating: 4.7, time: "25-35 min", calories: 980 },
+  { id: 7, name: "Pizza Portuguesa", description: "Presunto, ovos, cebola, azeitonas, ervilha", price: 48.9, category: "pizzas", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=400&fit=crop", rating: 4.6, time: "25-35 min", calories: 870 },
+  { id: 8, name: "Pizza Calabresa", description: "Calabresa fatiada, cebola roxa e azeitonas", price: 46.9, category: "pizzas", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=400&fit=crop", rating: 4.5, time: "25-35 min", calories: 830 },
+  { id: 9, name: "Pizza Frango com Catupiry", description: "Frango desfiado, catupiry original e milho", price: 47.9, category: "pizzas", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=400&fit=crop", rating: 4.7, time: "25-35 min", calories: 860, badge: "Top" },
+  { id: 10, name: "Pizza Vegetariana", description: "Berinjela, abobrinha, pimentao, cogumelos e rucula", price: 46.9, category: "pizzas", image: "https://images.unsplash.com/photo-1511689660979-10d2b1aada43?w=500&h=400&fit=crop", rating: 4.4, time: "25-35 min", calories: 720 },
 
-export function getTodayIndex(): number {
-  const d = new Date().getDay();
-  return d === 0 ? 6 : d - 1;
-}
+  // HAMBURGUER
+  { id: 11, name: "Smash Burger Duplo", description: "2 smash patties, cheddar, molho especial, pickles", price: 38.9, category: "hamburguer", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop", rating: 4.9, time: "20-30 min", calories: 780, badge: "Top" },
+  { id: 12, name: "Bacon Cheddar Burger", description: "Angus 180g, bacon crocante, cheddar, maionese defumada", price: 42.9, category: "hamburguer", image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&h=400&fit=crop", rating: 4.8, time: "20-30 min", calories: 850 },
+  { id: 13, name: "Mushroom Burger", description: "Blend 200g, cogumelos, queijo suico, molho trufado", price: 46.9, category: "hamburguer", image: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=500&h=400&fit=crop", rating: 4.7, time: "20-30 min", calories: 820 },
+  { id: 14, name: "Veggie Burger", description: "Hamburger de grao-de-bico, abacate, rucula", price: 36.9, category: "hamburguer", image: "https://images.unsplash.com/photo-1520072959219-c595a9b9e99b?w=500&h=400&fit=crop", rating: 4.5, time: "20-30 min", calories: 580 },
 
-export const foodSearchIndex: { food: string; day: string; dayIndex: number }[] = [];
-weekMenu.forEach((day, i) => {
-  day.ageGroups.forEach((ag) => {
-    ag.meals.forEach((meal) => {
-      meal.items.forEach((item) => {
-        foodSearchIndex.push({ food: item.name, day: day.label, dayIndex: i });
-      });
-    });
-  });
-});
+  // MASSAS
+  { id: 15, name: "Fettuccine Alfredo", description: "Massa fresca, molho cremoso de parmesao e frango", price: 52.9, category: "massas", image: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=500&h=400&fit=crop", rating: 4.8, time: "25-35 min", calories: 750 },
+  { id: 16, name: "Espaguete a Bolognesa", description: "Ragu tradicional de carne moida com molho de tomate", price: 44.9, category: "massas", image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&h=400&fit=crop", rating: 4.7, time: "25-35 min", calories: 680 },
+  { id: 17, name: "Lasanha della Nonna", description: "Camadas de massa, ragu, bechamel e queijo gratinado", price: 56.9, category: "massas", image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=500&h=400&fit=crop", rating: 4.9, time: "30-40 min", calories: 820, badge: "Chef" },
+  { id: 18, name: "Penne ao Pesto", description: "Molho pesto genoves, tomates cereja e mussarela", price: 48.9, category: "massas", image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&h=400&fit=crop", rating: 4.6, time: "25-35 min", calories: 640 },
+
+  // JAPONES
+  { id: 19, name: "Sushi 50 Pecas", description: "25 nigiris + 15 sashis + 10 hot rolls", price: 109.9, oldPrice: 139.9, category: "japones", image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=500&h=400&fit=crop", rating: 4.9, time: "35-50 min", badge: "Promo" },
+  { id: 20, name: "Hot Roll de Camarao", description: "8 pecas com cream cheese e molho tarutaru", price: 39.9, category: "japones", image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=500&h=400&fit=crop", rating: 4.7, time: "30-40 min", calories: 520 },
+  { id: 21, name: "Temaki Salmão", description: "Cone de nori com salmao fresco e cream cheese", price: 22.9, category: "japones", image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=500&h=400&fit=crop", rating: 4.6, time: "20-30 min", calories: 320 },
+
+  // ACOMPANHAMENTOS
+  { id: 22, name: "Batata Frita", description: "Porcao generosa crocante com sal e maionese", price: 18.9, category: "acompanhamentos", image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&h=400&fit=crop", rating: 4.5, time: "15-20 min", calories: 420 },
+  { id: 23, name: "Batata com Cheddar e Bacon", description: "Batata frita com cheddar cremoso e bacon crocante", price: 26.9, category: "acompanhamentos", image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&h=400&fit=crop", rating: 4.8, time: "15-20 min", calories: 580, badge: "Popular" },
+  { id: 24, name: "Onion Rings", description: "Aneis de cebola empanados e crocantes", price: 20.9, category: "acompanhamentos", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&h=400&fit=crop", rating: 4.4, time: "15-20 min", calories: 480 },
+
+  // BEBIDAS
+  { id: 25, name: "Coca-Cola 600ml", description: "Coca-Cola gelada", price: 8.9, category: "bebidas", image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&h=400&fit=crop", rating: 4.5, time: "10-15 min" },
+  { id: 26, name: "Suco Natural 500ml", description: "Laranja, limao, maracuja ou abacaxi", price: 12.9, category: "bebidas", image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=500&h=400&fit=crop", rating: 4.3, time: "10-15 min" },
+  { id: 27, name: "Milkshake Artesanal", description: "Nutella, Oreo, Morango ou Doce de Leite", price: 18.9, category: "bebidas", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&h=400&fit=crop", rating: 4.8, time: "10-15 min", badge: "Novo" },
+
+  // SOBREMESAS
+  { id: 28, name: "Brownie com Sorvete", description: "Brownie quente com sorvete e calda de caramelo", price: 28.9, category: "sobremesas", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&h=400&fit=crop", rating: 4.9, time: "15-20 min", calories: 650 },
+  { id: 29, name: "Churros com Doce de Leite", description: "4 churros recheados com doce de leite", price: 22.9, category: "sobremesas", image: "https://images.unsplash.com/photo-1624371414361-e67082718add?w=500&h=400&fit=crop", rating: 4.7, time: "15-20 min", calories: 480, badge: "Delicia" },
+  { id: 30, name: "Tiramisu", description: "Camadas de mascarpone, café e biscoito champanhe", price: 32.9, category: "sobremesas", image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&h=400&fit=crop", rating: 4.8, time: "15-20 min", calories: 520 },
+];
